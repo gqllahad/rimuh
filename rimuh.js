@@ -5,6 +5,11 @@ document.querySelectorAll('.section-front').forEach(section => {
     });
 });
 
-if (new URLSearchParams(window.location.search).get('source') === 'qr') {
-    alert('Thanks for scanning the QR code!');
-}
+new QRCode(document.getElementById("qrcode"), {
+    text: "https://gqllahad.github.io/rimuh/",
+    width: 200,
+    height: 200,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
