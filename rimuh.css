@@ -104,11 +104,6 @@ html {
     padding: 0 10px; /* optional for spacing 
     } */
 
-
-.section-front:hover{
-    max-height: 50vh;
-} */
-
  #qrcode-container {
       display: flex;
       justify-content: center;
