@@ -76,6 +76,8 @@ html {
 }
 
 .section-front {
+    display: flex;
+    flex-direction: column;
     position: relative;
     z-index: 2;
     max-height: 0;
