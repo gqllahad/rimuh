@@ -1,8 +1,8 @@
 
 document.querySelectorAll('.section-front').forEach(section => {
-    const trigger = section.previousElementSibling; // the section before
+    const trigger = section.previousElementSibling;
     trigger.addEventListener('click', () => {
-        section.classList.toggle('expanded'); // toggles expanded class
+        section.classList.toggle('expanded'); 
     });
 });
 

@@ -94,18 +94,16 @@ html {
 .section-front {
     position: relative;
     z-index: 2;
-    max-height: 0;          /* hidden by default */
+    max-height: 0;
     overflow: hidden;
     background-color: rgba(0,0,0,0.7);
     color: white;
-    padding: 0 10px;
     text-align: center;
-    transition: max-height 0.5s ease, padding 0.5s ease;
+    transition: max-height 0.5s ease-in-out;
 }
 
 .section-front.expanded {
-    max-height: 50vh;       /* visible when expanded */
-    padding: 20px 10px;
+    max-height: 50vh;
 }
 
 /* .section-front{ 
