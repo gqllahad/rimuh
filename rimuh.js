@@ -1,7 +1,7 @@
 
 document.querySelectorAll('.section-front').forEach(section => {
-    section.addEventListener('click', () => {
-        section.style.maxHeight = section.style.maxHeight === '50vh' ? '0' : '50vh';
+    section.previousElementSibling.addEventListener('click', () => {
+        section.classList.toggle('expanded');
     });
 });
 

@@ -78,13 +78,14 @@ html {
 .section-front{ 
     display: flex;
     justify-content: center;   
-    align-items: center;       
-    max-height: 0;
-    overflow: hidden;        
+    align-items: center;             
     text-align: center;
     color: white;
     transition: max-height 0.8s ease-in-out;
+
+    max-height: 0;
     overflow: hidden;
+    padding: 0 10px; /* optional for spacing */
 }
 
 .section-front:hover{
