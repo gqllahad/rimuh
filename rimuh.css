@@ -92,6 +92,13 @@ html {
     max-height: 40vh;
 }
 
+.info-text img{
+
+    max-width: 20%;
+    max-height: 5vh;
+    
+}
+
  #qrcode-container {
       display: flex;
       justify-content: center;
