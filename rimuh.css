@@ -76,11 +76,6 @@ html {
 }
 
 .section-front {
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-rows: 3, 1fr;
-    gap: 10%;
-
     position: relative;
     z-index: 2;
     max-height: 0;
@@ -93,6 +88,13 @@ html {
 
 .section-front.expanded {
     max-height: 40vh;
+}
+
+.info-text{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 3, 1fr;
+    gap: 10%;
 }
 
 .info-text img{
