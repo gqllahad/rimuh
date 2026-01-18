@@ -75,7 +75,23 @@ html {
     z-index : 1;
 }
 
-.section-front{ 
+.section-front{
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    max-height: 10vh; /* make it visible */
+    text-align: center;
+    color: white;
+    transition: max-height 0.8s ease-in-out;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.7); /* optional so it’s visible */
+}
+
+.section-front:hover{
+    max-height: 50vh; /* grow on hover */
+}
+
+/* .section-front{ 
     display: flex;
     justify-content: center;   
     align-items: center;             
@@ -85,12 +101,13 @@ html {
 
     max-height: 0;
     overflow: hidden;
-    padding: 0 10px; /* optional for spacing */
-}
+    padding: 0 10px; /* optional for spacing 
+    } */
+
 
 .section-front:hover{
     max-height: 50vh;
-}
+} */
 
  #qrcode-container {
       display: flex;
