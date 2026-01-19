@@ -15,6 +15,54 @@
 //     lightbox.style.display = "none";
 // });
 
+// openAlbum.addEventListener("click", () => {
+
+//     openAlbum.style.display = "none";
+// });
+
+// const openAlbum = document.getElementById("outer-container");
+// const flower = document.getElementById("flower");
+
+// flower.addEventListener("click", () => {
+//   flower.classList.add("bloom");
+
+//   setTimeout(() => {
+//     flower.classList.remove("bloom");
+//     flower.classList.add("revert");
+
+//     setTimeout(() => {
+//       flower.classList.remove("revert");
+//       flower.style.display = "none";
+//       openAlbum.style.display = "none";
+
+//     }, 3000);
+
+//   }, 3000);
+// });
+
+const flower = document.getElementById("flower");
+const outer = document.getElementById("outer-container");
+const left = document.querySelector(".book-left");
+const right = document.querySelector(".book-right");
+
+flower.addEventListener("click", () => {
+  flower.classList.add("bloom");
+
+  setTimeout(() => {
+    flower.classList.remove("bloom");
+    flower.classList.add("revert");
+
+    setTimeout(() => {
+      flower.classList.remove("revert");
+      flower.style.display = "none";
+
+      left.classList.add("open-left");
+      right.classList.add("open-right");
+
+    }, 3000); 
+  }, 3000);
+});
+
 
 new QRCode(document.getElementById("qrcode"), {
     text: "https://gqllahad.github.io/rimuh/rimuh.html",
