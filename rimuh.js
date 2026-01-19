@@ -45,6 +45,10 @@ const outer = document.getElementById("outer-container");
 const left = document.querySelector(".book-left");
 const right = document.querySelector(".book-right");
 
+const flowerBlooms = document.getElementById("flower-blooms");
+
+const title = document.getElementById("albumTitle");
+
 flower.addEventListener("click", () => {
   flower.classList.add("bloom");
 
@@ -59,8 +63,47 @@ flower.addEventListener("click", () => {
       left.classList.add("open-left");
       right.classList.add("open-right");
 
+      setTimeout(() => {
+        title.style.display = "block"; 
+        setTimeout(() => {
+          title.classList.add("show");   
+        }, 50); 
+      }, 1000);
+
     }, 3000); 
   }, 3000);
+});
+
+
+function createBloomPetal() {
+  const petal = document.createElement("div");
+  petal.classList.add("bloom-petal");
+
+  // Random position near the book
+  const x = (Math.random() - 0.5) * 400; // horizontal spread
+  const y = (Math.random() - 0.5) * 400; // vertical spread
+  const rot = Math.random() * 360 + "deg";
+
+  petal.style.setProperty("--x", x + "px");
+  petal.style.setProperty("--y", y + "px");
+  petal.style.setProperty("--rot", rot);
+
+  // random starting position near center
+  petal.style.left = "50%";
+  petal.style.top = "50%";
+
+  flowerBlooms.appendChild(petal);
+
+  // remove after animation finishes
+  setTimeout(() => {
+    petal.remove();
+  }, 3000);
+}
+
+flower.addEventListener("click", () => {
+  for (let i = 0; i < 20; i++) {
+    setTimeout(createBloomPetal, i * 900);
+  }
 });
 
 
