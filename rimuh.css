@@ -13,102 +13,28 @@ html {
     scroll-behavior: smooth;
 }
 
-.first, .second, .third, .fourth{
-    position: relative;
-    opacity: 0.90;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+
+.outer-container{
+    border: 5px solid black;
+    width: 360px;     
+    height: 640px;   
+
 }
 
-.first{
-    background-image: url(eto3.gif);
-    min-height: 55%;
+.inner-container{
+    width: 360px;          
+    height: 640px; 
+    border: 2px solid red;
+
+
 }
 
-.second{
-    background-image: url(eto1.gif);
-    min-height: 55%;
-}
-
-.third{
-    background-image: url(etow.gif);
-    min-height: 55%;
-}
-
-.fourth{
-    background-image: url(eto3.gif);
-    min-height: 55%;
-}
-
-
-.bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;                
-    height: 100%;            
-    min-width: 100%;         
-    object-fit: cover;       
-    transform: translate(-50%, -50%);
-    z-index: -1;             
-}
-
-
-.ptext{
-    background-color: wheat;
-    color: black;
-    font-weight : 400;
-    padding: 20px 10px;   
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-block;
-    text-align: center;
-    color: black;
-    font-size: 2rem;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    z-index : 1;
-}
-
-.section-front {
-    position: relative;
-    z-index: 2;
-    max-height: 0;
-    overflow: hidden;
-    background-color: rgba(0,0,0,0.7);
-    color: white;
-    text-align: center;
-    transition: max-height 0.5s ease-in-out;
-}
-
-.section-front.expanded {
-    max-height: 40vh;
-}
-
-.info-text{
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-rows: 3, 1fr;
-    gap: 10%;
-}
-
-.info-text img{
-    max-width: 40%;
-    max-height: 50vh;
-}
 
  #qrcode-container {
       display: flex;
       justify-content: center;
-      border-radius: 20px;
       margin: 30px 0;
     }
-
 
 @media (max-width: 768px){
     .ptext { font-size: 1.5rem; letter-spacing: 4px; padding: 15px 10px; }
