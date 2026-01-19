@@ -244,6 +244,7 @@ font-family: Arial, Helvetica, sans-serif;
 font-style: italic;
   font-weight: 400;
   font-size: 3vh;
+  font-size: 0.875rem;
   color: wheat;
   text-align: center;
   z-index: 3;
@@ -326,6 +327,11 @@ font-style: italic;
       justify-content: center;
       margin: 30px 0;
     }
+
+    #qrcode {
+    width: 200px;
+    height: 200px;
+}
 
 
 @keyframes explode {

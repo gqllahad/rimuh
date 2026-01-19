@@ -148,7 +148,7 @@ heart.addEventListener("click", () => {
   }
 });
 
-document.getElementById("downloadVideo").addEventListener("click", () => {
+document.getElementById("download-btn").addEventListener("click", () => {
   const link = document.createElement("a");
   link.href = "134a0bfb-4b78-4f85-b55d-ae539f1f7699.jpg"; 
   link.download = "134a0bfb-4b78-4f85-b55d-ae539f1f7699.jpg";
