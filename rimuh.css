@@ -15,6 +15,7 @@ html {
 
 
 .outer-container{
+    flex-direction: column;
     position: relative;
     width: 80vw;
     max-width: 320px;
@@ -149,18 +150,116 @@ html {
 .bloom-petal {
   position: absolute;
   width: 20px;
-  height: 20px;
+  height: 30px;
   background: radial-gradient(circle, #f5deb3 0%, #ffb6c1 100%);
   border-radius: 50%;
   opacity: 0.8;
+  clip-path: polygon(
+    50% 0%, 
+    100% 50%, 
+    50% 100%, 
+    0% 50%
+  );
   animation: bloom-float 3s forwards ease-out;
 }
 
 .albumItems{
     display: none;
+    opacity: 0;
+    z-index: 3;
+    position: relative;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    width: 100%;          
+    max-width: 320px;     
+    height: auto;
+    max-height: 90vh;     
+    margin: 30px auto;
 }
 
+.albumItems video{
+    width: 100%;          
+    height: auto;         
+    border-radius: 10px;  
+    object-fit: contain;
+}
 
+.albumItems.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heart-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;  
+}
+
+.viewAll {
+    position: relative;
+    transform: translateY(20px);
+    width: 60px;
+    height: 60px;
+    background-color: crimson;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transform: rotate(-45deg);
+    display: none;
+    z-index: 10;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.viewAll::before,
+.viewAll::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: crimson;
+    border-radius: 50%;
+}
+
+.viewAll::before {
+    top: -30px;
+    left: 0;
+}
+
+.viewAll::after {
+    left: 30px;
+    top: 0;
+}
+.viewAll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.explode {
+  animation: explode 0.8s forwards ease-out;
+}
+
+.messageRimuh{
+font-family: Arial, Helvetica, sans-serif;
+font-style: italic;
+  font-weight: 400;
+  font-size: 3vh;
+  color: wheat;
+  text-align: center;
+  z-index: 3;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  margin: 50px auto;
+  transition: opacity 2s ease-in, transform 2s ease-in;
+  pointer-events: none;
+}
+
+.messageRimuh.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
 /* 
 .album {
@@ -204,6 +303,12 @@ html {
       margin: 30px 0;
     }
 
+
+@keyframes explode {
+  0% { transform: scale(1) rotate(-45deg); opacity: 1; }
+  50% { transform: scale(2.5) rotate(-45deg); opacity: 0.7; }
+  100% { transform: scale(3) rotate(-45deg); opacity: 0; }
+}
 
 @keyframes petal-bloom {
   0% { transform: rotate(var(--rot)) scale(0.2); opacity: 0; }
