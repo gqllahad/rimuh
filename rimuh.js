@@ -51,6 +51,7 @@ const flowerBlooms = document.getElementById("flower-blooms");
 const title = document.getElementById("albumTitle");
 const items = document.getElementById("albumItems");
 const rimuh = document.getElementById("rimuh");
+const dwn = document.getElementById("download-btn");
 
 const heart = document.getElementById("viewAll");
 let scale = 1;             
@@ -137,6 +138,8 @@ heart.addEventListener("click", () => {
         setTimeout(() => {
             heart.style.transform = `rotate(-45deg) scale(${scale})`;
             rimuh.classList.add("show");
+            dwn.style.display = "block";
+            dwn.classList.add("show");
     
     }, 500);
         
@@ -145,6 +148,14 @@ heart.addEventListener("click", () => {
   }
 });
 
+document.getElementById("downloadVideo").addEventListener("click", () => {
+  const link = document.createElement("a");
+  link.href = "134a0bfb-4b78-4f85-b55d-ae539f1f7699.jpg"; 
+  link.download = "134a0bfb-4b78-4f85-b55d-ae539f1f7699.jpg";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
 
 new QRCode(document.getElementById("qrcode"), {
     text: "https://gqllahad.github.io/rimuh/rimuh.html",
