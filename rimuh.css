@@ -15,13 +15,83 @@ html {
 
 
 .outer-container{
-width: 80vw;
+    position: relative;
+    width: 80vw;
     max-width: 320px;
-    aspect-ratio: 2 / 3;   /* book cover ratio */
+    aspect-ratio: 2 / 3;
     background-color: #2b2b2b;
     border-radius: 14px;
     margin: 40px auto;
     box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+.outer-container::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+
+.flower {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: #f5deb3;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.petal {
+  position: absolute;
+  width: 60px;
+  height: 25px;
+  background: radial-gradient(circle at left, wheat 60%, transparent 70%);
+  border-radius: 50% 50% 50% 50%;
+  top: 0;
+  left: 50%;
+  transform-origin: left center;
+  opacity: 0;
+   transform: rotate(var(--rot)) scale(0.2);
+  animation: petal-bloom 4s infinite ease-in-out;
+}
+.petal:nth-child(1) { --rot: 0deg; }
+.petal:nth-child(2) { --rot: 60deg; }
+.petal:nth-child(3) { --rot: 120deg; }
+.petal:nth-child(4) { --rot: 180deg; }
+.petal:nth-child(5) { --rot: 240deg; }
+.petal:nth-child(6) { --rot: 300deg; }
+
+@keyframes petal-bloom {
+  0% {
+    transform: rotate(var(--rot)) scale(0.2);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  70% {
+    transform: rotate(var(--rot)) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotate(var(--rot)) scale(1.2);
+    opacity: 0;
+  }
+}
+.cover-title{
+ font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 3vh;
+  color: wheat;
+  text-align: center;
+  z-index: 3;
+  position: relative;
 }
 
 /* 
