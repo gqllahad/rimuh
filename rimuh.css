@@ -1,5 +1,5 @@
 body, html {
-    background-color: rgb(29, 36, 36);
+    /* background-color: rgb(29, 36, 36); */
     height: 100%;
     margin: 0;
     font-size: 16px;
@@ -7,6 +7,10 @@ body, html {
     font-weight: 400px;
     line-height: 1.8em;
     color: white;
+    overflow: hidden;
+     background: linear-gradient(135deg, #ff758c, #ff7eb3, #ff9cac, #ffc1cc);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
 }
 
 html {
@@ -286,6 +290,91 @@ font-style: italic;
   align-items: center;  
 }
 
+
+/* Valentine Mirah */
+
+.hero{
+   display: flex;                 
+    justify-content: center;       
+    align-items: center;           
+    height: 100vh;                 
+    flex-direction: row;        
+    padding: 2rem auto;
+    text-align: center;
+    margin: 0 5%;
+}
+.hero h2{
+  color: #9b1b30;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.hero p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.5rem;
+    font-weight: lighter;
+    color: #f8f8f8;
+}
+
+.hero button{
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+#yess{
+  background-color: #ff3f6c;
+  height: 50px;
+  width: 250px;
+}
+
+#noo{
+  background-color: #9b1b30;
+  height: 50px;
+  width: 250px;
+}
+
+.button-holder{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  margin: 5% 10%;
+}
+
+#yess:hover{
+    opacity: 0.9;
+    background-color: #df0e31;
+}
+
+#noo:hover{
+    opacity: 0.9;
+    background-color: #360a11;
+}
+
+.image-container{
+    width: 300px;
+    height: 200px;
+    background-image: url('s1.gif');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    align-items: center;
+    margin : 10% 20%;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.jumpy-image img {
+  width: 150px;
+  height: auto;
+  animation: jump 1s infinite; /* run the animation continuously */
+}
+
 /* 
 .album {
     display: grid;
@@ -333,6 +422,12 @@ font-style: italic;
     height: 200px;
 }
 
+/* animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 @keyframes explode {
   0% { transform: scale(1) rotate(-45deg); opacity: 1; }
@@ -358,6 +453,15 @@ font-style: italic;
 @keyframes open-right {
   0% { transform: rotateY(0deg); }
   100% { transform: rotateY(120deg); }
+}
+
+@keyframes jump {
+  0%   { transform: translateY(0); }
+  20%  { transform: translateY(-15px); }  /* jump up */
+  40%  { transform: translateY(0); }      /* come down */
+  60%  { transform: translateY(-10px); }  /* smaller bounce */
+  80%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
 }
 
 
