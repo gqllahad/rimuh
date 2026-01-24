@@ -140,7 +140,18 @@ html {
   transform: translateY(0);
 }
 
-#flower-blooms {
+#flower-blooms-sad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; 
+  overflow: visible;
+  z-index: 0;
+}
+
+#flower-blooms-love {
   position: absolute;
   top: 0;
   left: 0;
@@ -243,6 +254,10 @@ html {
   animation: explode 0.8s forwards ease-out;
 }
 
+.explode-valen {
+  animation: explode-valentine 0.8s forwards ease-out;
+}
+
 .messageRimuh{
 font-family: Arial, Helvetica, sans-serif;
 font-style: italic;
@@ -326,16 +341,32 @@ font-style: italic;
     border-radius: 6px;
 }
 
+.hero-message{
+  display: none;
+  justify-content: center;       
+    align-items: center;           
+    height: 100vh;                 
+    flex-direction: row;        
+    padding: 2rem auto;
+    text-align: center;
+    margin: 0 5%;
+}
+
 #yess{
   background-color: #ff3f6c;
   height: 50px;
   width: 250px;
+  z-index: 1;
+  transition: transform 0.3s ease;
 }
 
 #noo{
   background-color: #9b1b30;
   height: 50px;
   width: 250px;
+  position: relative;
+  transition: left 0.3s ease, top 0.3s ease;
+  z-index: 10;
 }
 
 .button-holder{
@@ -348,7 +379,7 @@ font-style: italic;
 }
 
 #yess:hover{
-    opacity: 0.9;
+    opacity: 0.6;
     background-color: #df0e31;
 }
 
@@ -435,6 +466,12 @@ font-style: italic;
   100% { transform: scale(3) rotate(-45deg); opacity: 0; }
 }
 
+@keyframes explode-valentine {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(2.5); opacity: 0.7; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
 @keyframes petal-bloom {
   0% { transform: rotate(var(--rot)) scale(0.2); opacity: 0; }
   100% { transform: rotate(var(--rot)) scale(1); opacity: 1; }
@@ -457,9 +494,9 @@ font-style: italic;
 
 @keyframes jump {
   0%   { transform: translateY(0); }
-  20%  { transform: translateY(-15px); }  /* jump up */
-  40%  { transform: translateY(0); }      /* come down */
-  60%  { transform: translateY(-10px); }  /* smaller bounce */
+  20%  { transform: translateY(-15px); }  
+  40%  { transform: translateY(0); }     
+  60%  { transform: translateY(-10px); }  
   80%  { transform: translateY(0); }
   100% { transform: translateY(0); }
 }
