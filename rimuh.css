@@ -309,7 +309,8 @@ font-style: italic;
 /* Valentine Mirah */
 
 .hero{
-   display: flex;                 
+   display: flex;    
+   opacity: 0;             
     justify-content: center;       
     align-items: center;           
     height: 100vh;                 
@@ -317,7 +318,15 @@ font-style: italic;
     padding: 2rem auto;
     text-align: center;
     margin: 0 5%;
+    transform: translateY(60px);
+    transition: opacity 2.5s ease, transform 2s ease;
 }
+
+.hero.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero h2{
   color: #9b1b30;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -342,14 +351,24 @@ font-style: italic;
 }
 
 .hero-message{
-  display: none;
-  justify-content: center;       
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    justify-content: center;       
     align-items: center;           
     height: 100vh;                 
     flex-direction: row;        
     padding: 2rem auto;
     text-align: center;
     margin: 0 5%;
+    transform: translateY(60px);
+    transition: opacity 2.5s ease, transform 2s ease;
+}
+
+.hero-message.show{
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #yess{
@@ -365,7 +384,7 @@ font-style: italic;
   height: 50px;
   width: 250px;
   position: relative;
-  transition: left 0.3s ease, top 0.3s ease;
+  transition: left 0.3s ease, top 0.3s ease, transform 0.3s ease;
   z-index: 10;
 }
 
@@ -387,23 +406,26 @@ font-style: italic;
     opacity: 0.9;
     background-color: #360a11;
 }
+.container, .second-container {
+  margin: 0 10%;
+}
 
 .image-container{
-    width: 300px;
-    height: 200px;
+    width: 420px;
+    height: 250px;
     background-image: url('s1.gif');
     background-size: cover;
     background-position: center;
     border-radius: 8px;
     align-items: center;
-    margin : 10% 20%;
+    margin : 10% 10%;
     transition: background-image 0.5s ease-in-out;
 }
 
 .jumpy-image img {
   width: 150px;
   height: auto;
-  animation: jump 1s infinite; /* run the animation continuously */
+  animation: jump 1s infinite;
 }
 
 /* 

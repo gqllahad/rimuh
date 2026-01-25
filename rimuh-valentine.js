@@ -19,9 +19,17 @@ const images = [
 
 let currentImage = 0;
 
-let scale = 1;             
+let scale = 1;      
+let dec_scale = 1.6;
+
 const maxScale = 15;         
 const increment = 1;    
+const decrement = 0.1;
+
+
+window.addEventListener("load", () => {
+   document.querySelector(".hero").classList.add("show");
+});
 
 press_no.addEventListener("click", () => {
 
@@ -31,12 +39,18 @@ press_no.addEventListener("click", () => {
 
   if(!press_yes.classList.contains("explode-valen")){
       scale += increment;
+      dec_scale -= decrement;
+      
       press_yes.style.transform = `scale(${scale})`;
+
+      if (scale < 0.2) {scale = 0.2;}
+
+      press_no.style.transform = `scale(${dec_scale})`;
+      
 
       if(scale >= maxScale){
         press_no.classList.add("explode-valen");
       }
-
   }
 
   const maxX = window.innerWidth - press_no.offsetWidth;
@@ -51,17 +65,11 @@ press_no.addEventListener("click", () => {
 });
 
 press_yes.addEventListener("click", () => {
-
     press_yes.classList.add("explode-valen");
     
     hero.style.display = "none";
-    hero_message.style.display = "flex";
-
-
+    document.querySelector(".hero-message").classList.add("show");
 })
-
-
-
 
 new QRCode(document.getElementById("qrcode"), {
     text: "https://gqllahad.github.io/rimuh/rimuh.html",
