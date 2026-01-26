@@ -40,30 +40,48 @@
     </section>
 
     <section class="hero-message" id="hero-mess">
-      <div class="jumpy-image">
-        <img src="s16.gif" alt="Cute Image" />
-      </div>
-      <div class="second-container">
-        <div class="jumpy-image">
-          <img src="s17.gif" alt="Cute Image" />
-        </div>
-        <h2 class="hover-text" data-hover="SABI NA CRUSH MO'KO EH!!!">
-          너 나 좋아하는 거 다 알아!!!
-        </h2>
-        <p
-          class="hover-text"
-          data-hover="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam
+      <div class="second-message" id="second-mess">
+        <div class="second-container">
+          <div class="jumpy-image">
+            <img src="s17.gif" alt="Cute Image" />
+          </div>
+
+          <h2 class="hover-text" data-hover="SABI NA CRUSH MO'KO EH!!!">
+            너 나 좋아하는 거 다 알아!!!
+          </h2>
+          <p
+            class="hover-text"
+            data-hover="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam
           perspiciatis necessitatibus possimus quis aut aperiam porro officiis
           ex velit eos, molestias sunt nam officia incidunt facilis? Adipisci
           distinctio beatae molestiae."
-        >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam
-          perspiciatis necessitatibus possimus quis aut aperiam porro officiis
-          ex velit eos, molestias sunt nam officia incidunt facilis? Adipisci
-          distinctio beatae molestiae.
-        </p>
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam
+            perspiciatis necessitatibus possimus quis aut aperiam porro officiis
+            ex velit eos, molestias sunt nam officia incidunt facilis? Adipisci
+            distinctio beatae molestiae.
+          </p>
 
-        <div class="calendar">
+          <button class="set-date" id="set-date">Set Date</button>
+
+          <div class="jumpy-image">
+            <img src="s15.gif" alt="Cute Image" />
+          </div>
+        </div>
+      </div>
+
+      <div class="calendar-container" id="calendar-container">
+        <div class="jumpy-image">
+          <img src="s15.gif" alt="Cute Image" />
+        </div>
+        <h2
+          class="hover-text-calendar"
+          data-hover="Mondays and Saturdays lang 😭"
+        >
+          Choose ikaw when us mag-date hehe!
+        </h2>
+
+        <div class="calendar" id="calendar">
           <div class="calendar-header">
             <button id="prev">‹</button>
             <h3 id="monthYear"></h3>
@@ -78,17 +96,11 @@
           <div class="calendar-days" id="calendarDays"></div>
         </div>
 
-        <button class="set-date">Set Date</button>
-
-        <div class="jumpy-image">
-          <img src="s15.gif" alt="Cute Image" />
-        </div>
-      </div>
-      <div class="jumpy-image">
-        <img src="s17.gif" alt="Cute Image" />
+        <button class="set-date" id="send-date">SET!</button>
       </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="rimuh-valentine.js"></script>
   </body>

@@ -407,9 +407,11 @@ font-style: italic;
 
 #noo{
   background-color: #9b1b30;
+  color: white;
   height: 50px;
   width: 250px;
   position: relative;
+  outline : none;
   transition: left 0.3s ease, top 0.3s ease, transform 0.3s ease;
   z-index: 10;
 }
@@ -476,7 +478,7 @@ font-style: italic;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   border-radius: 8px;
-  margin : 3% 0;
+  margin : 3% 5%;
   transform: translateY(0);
   transition: background 0.5s ease, transform 1s ease;
 }
@@ -488,10 +490,14 @@ font-style: italic;
 }
 
 /* message gover */
-.hover-text {
+.hover-text, .hover-text-calendar {
   position: relative;
   display: inline-block;
   cursor: pointer;
+}
+
+.hover-text-calendar{
+  margin: 5% 5%;
 }
 
 .hover-text::after {
@@ -505,19 +511,41 @@ font-style: italic;
   color: crimson;
 }
 
-.hover-text:hover::after {
+.hover-text-calendar::after{
+  content: attr(data-hover);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: #f8f8f8;
+}
+
+.hover-text:hover::after, .hover-text-calendar:hover::after {
   opacity: 1;
   transform: translateY(0);
 }
 
-.hover-text:hover {
+.hover-text:hover, .hover-text-calendar:hover {
   color: transparent;
 }
 
 
+
+
 /* calendar */
-.calendar {
+.calendar-container{
   display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 2s ease;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.calendar {
   width: 100%;
   max-width: 360px;
   background: rgb(221, 35, 35);
@@ -566,7 +594,7 @@ font-style: italic;
 }
 
 .calendar-days div:hover {
-  background: #ffe3ea;
+  background: #f74f6b;
   transform: scale(1.05);
 }
 
@@ -579,6 +607,22 @@ font-style: italic;
 .calendar-days .selected {
   background: #ff8fa3;
   color: white;
+}
+
+.calendar-container.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.second-message{
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.5s ease, transform 2s ease;
+}
+
+.second-message.hide{
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 /* 

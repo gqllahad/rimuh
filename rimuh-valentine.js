@@ -1,3 +1,5 @@
+emailjs.init("D--P5f2cDHlPhZvs7");
+
 const press_no = document.getElementById("noo");
 const press_yes = document.getElementById("yess");
 
@@ -29,14 +31,16 @@ const images = [
 let currentImage = 0;
 
 let scale = 1;      
-let dec_scale = 1.6;
+let dec_scale = 1.8;
 
-const maxScale = 15;         
+const maxScale = 17;         
 const increment = 1;    
 const decrement = 0.1;
 
+const set_date = document.getElementById("set-date");
+const calen = document.getElementById("calendar-container");
 
-
+const sec_mess = document.getElementById("second-mess");
 
 window.addEventListener("load", () => {
    document.querySelector(".hero").classList.add("show");
@@ -123,6 +127,9 @@ function renderCalendar() {
     dayDiv.textContent = day;
 
     const today = new Date();
+    const dateObj = new Date(year, month, day);
+    const dayOfWeek = dateObj.getDay();
+    
     if (
       day === today.getDate() &&
       month === today.getMonth() &&
@@ -140,6 +147,33 @@ function renderCalendar() {
     dayDiv.classList.add("selected");
   }
 
+  if (dayOfWeek === 0) {
+    dayDiv.classList.add("disabled");
+    dayDiv.style.pointerEvents = "none";
+    dayDiv.style.opacity = "0.3";
+  }
+  else if(dayOfWeek === 2){
+        dayDiv.classList.add("disabled");
+    dayDiv.style.pointerEvents = "none";
+    dayDiv.style.opacity = "0.3";
+  }
+  else if(dayOfWeek === 3){
+        dayDiv.classList.add("disabled");
+    dayDiv.style.pointerEvents = "none";
+    dayDiv.style.opacity = "0.3";
+  }
+  else if(dayOfWeek === 4){
+        dayDiv.classList.add("disabled");
+    dayDiv.style.pointerEvents = "none";
+    dayDiv.style.opacity = "0.3";
+  }
+  else if(dayOfWeek === 5){
+        dayDiv.classList.add("disabled");
+    dayDiv.style.pointerEvents = "none";
+    dayDiv.style.opacity = "0.3";
+  }
+  else{
+  
     dayDiv.addEventListener("click", () => {
       document
         .querySelectorAll(".calendar-days div")
@@ -151,6 +185,7 @@ function renderCalendar() {
 
       console.log(`Selected: ${year}-${month + 1}-${day}`);
     });
+  }
 
     daysContainer.appendChild(dayDiv);
   }
@@ -176,6 +211,48 @@ document.getElementById("next").onclick = () => {
 };
 
 renderCalendar();
+
+set_date.addEventListener("click", () => {
+
+  
+    document.querySelector(".second-message").classList.add("hide");
+    setTimeout(() => {
+      sec_mess.style.display = "none";
+      calen.style.display = "flex";
+      setTimeout(() => {
+        document.querySelector(".calendar-container").classList.add("show");
+
+      }, 800);
+      
+    },900);
+});
+
+
+document.getElementById("send-date").addEventListener("click", () => {
+  if (!selectedDate) {
+    alert("Please select a date first 💖");
+    return;
+  }
+
+  const formattedDate = selectedDate.toDateString();
+
+  const templateParams = {
+    selectedDate: formattedDate,
+    message: "I'm Looking forward to seeing you again babyy! ❤",      
+    time: new Date().toLocaleTimeString()
+  };
+
+  emailjs.send("service_0aq2la9", "template_q2mq3wb", templateParams)
+    .then((response) => {
+      console.log("Email sent!", response.status, response.text);
+      alert("DATE IS SET! SEE YOU MAHAL! <3");
+    })
+    .catch((error) => {
+      console.error("Failed to send email:", error);
+      alert("Email failed to send 😢");
+    });
+
+});
 
 new QRCode(document.getElementById("qrcode2"), {
     text: "https://gqllahad.github.io/rimuh/rimuh-valentine.html",
