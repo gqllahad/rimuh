@@ -148,7 +148,7 @@ function renderCalendar() {
       dayDiv.classList.add("selected");
 
       selectedDate = new Date(year, month, day);
-      
+
       console.log(`Selected: ${year}-${month + 1}-${day}`);
     });
 
@@ -177,10 +177,8 @@ document.getElementById("next").onclick = () => {
 
 renderCalendar();
 
-
-
-new QRCode(document.getElementById("qrcode"), {
-    text: "https://gqllahad.github.io/rimuh/rimuh.html",
+new QRCode(document.getElementById("qrcode2"), {
+    text: "https://gqllahad.github.io/rimuh/rimuh-valentine.html",
     width: 200,
     height: 200,
     colorDark: "#cf3d81",

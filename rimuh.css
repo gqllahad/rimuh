@@ -7,7 +7,7 @@ body, html {
     font-weight: 400px;
     line-height: 1.8em;
     color: white;
-    overflow: hidden;
+    /* overflow: hidden; */
      background: linear-gradient(135deg, #ff758c, #ff7eb3, #ff9cac, #ffc1cc);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
