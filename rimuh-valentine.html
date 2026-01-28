@@ -98,7 +98,48 @@
 
         <button class="set-date" id="send-date">SET!</button>
       </div>
+
+      <!-- message for me -->
+      <div class="message-container" id="mess-rimuh">
+        <h2>Message for me..</h2>
+        <p>
+          I know it's not necessary for you to write a message for me. But, I
+          want to include you in this.
+        </p>
+        <textarea
+          id="replyMessage"
+          placeholder="Write your message here..."
+          rows="6"
+        ></textarea>
+        <button id="sendReply">Send!💌</button>
+      </div>
     </section>
+
+    <!-- modal -->
+    <div class="modal" id="confirmModal">
+      <div class="modal-content">
+        <h2>💖 Date Confirmation</h2>
+        <p id="modal-date-text"></p>
+
+        <div class="modal-buttons">
+          <button id="confirmSend">Yes, sure na! 💌</button>
+          <button id="cancelModal">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- pre-message Ni miruh -->
+    <div class="modal" id="confirmMiruh">
+      <div class="modal-content">
+        <h2>Message Confirmation..</h2>
+        <p>Do you want to write a message for the person you're obsessed to?</p>
+
+        <div class="modal-buttons">
+          <button id="confirmMessage">Oo naman!!</button>
+          <button id="cancelMessage">Ayaw ko!!</button>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>

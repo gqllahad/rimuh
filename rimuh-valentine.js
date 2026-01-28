@@ -18,6 +18,15 @@ const minDate = new Date(2026, 0, 1);
 
 let selectedDate = null;
 
+const modal = document.getElementById("confirmModal");
+const modalDateText = document.getElementById("modal-date-text");
+
+// miruh mess
+const replyMessage = document.getElementById("replyMessage").value;
+const miruhMessage = document.getElementById("mess-rimuh");
+
+const confirmMiruh = document.getElementById("confirmMiruh");
+
 const images = [
   "s7.gif",
   "s5.gif",
@@ -91,7 +100,6 @@ press_yes.addEventListener("click", () => {
       document.querySelector(".hero-message").classList.add("show");
     },3100)
 
-    
 });
 
 function renderCalendar() {
@@ -230,28 +238,164 @@ set_date.addEventListener("click", () => {
 
 document.getElementById("send-date").addEventListener("click", () => {
   if (!selectedDate) {
-    alert("Please select a date first 💖");
+    alert("Please select a date first baby! 💖");
     return;
   }
 
   const formattedDate = selectedDate.toDateString();
+  modalDateText.textContent = `Selected Date: ${formattedDate}.`;
+
+  modal.style.display ="flex";
+  
+  modal.classList.add("show");
+  // const templateParams = {
+  //   selectedDate: formattedDate,
+  //   message: "I'm Looking forward to seeing you again babyy! ❤",      
+  //   time: new Date().toLocaleTimeString()
+  // };
+
+  // emailjs.send("service_0aq2la9", "template_q2mq3wb", templateParams)
+  //   .then((response) => {
+  //     console.log("Email sent!", response.status, response.text);
+  //     alert("DATE IS SET! SEE YOU MAHAL! <3");
+  //   })
+  //   .catch((error) => {
+  //     console.error("Failed to send email:", error);
+  //     alert("Email failed to send 😢");
+  //   });
+
+});
+
+// INIGO INPUT
+document.getElementById("confirmSend").addEventListener("click", () => {
+
+  if (!selectedDate) return;
+  const formattedDate = selectedDate.toDateString();
 
   const templateParams = {
     selectedDate: formattedDate,
-    message: "I'm Looking forward to seeing you again babyy! ❤",      
+    message: "I'm looking forward to seeing you again babyy! ❤",
     time: new Date().toLocaleTimeString()
   };
 
-  emailjs.send("service_0aq2la9", "template_q2mq3wb", templateParams)
-    .then((response) => {
-      console.log("Email sent!", response.status, response.text);
-      alert("DATE IS SET! SEE YOU MAHAL! <3");
-    })
-    .catch((error) => {
-      console.error("Failed to send email:", error);
-      alert("Email failed to send 😢");
-    });
+  emailjs
+    .send("service_0aq2la9", "template_q2mq3wb", templateParams)
+    .then(() => {
+      modal.classList.remove("show");
+      modal.classList.add("hide");
+      modal.addEventListener(
+      "animationend",
+      () => {
+      modal.style.display = "none";
+      modal.classList.remove("hide");
 
+      confirmMiruh.style.display = "flex";
+
+      confirmMiruh.classList.add("show");
+
+    },
+    { once: true }
+  );
+    })
+    .catch(() => {
+      alert("Email failed baby! 😢");
+      modal.classList.remove("show");
+      modal.classList.add("hide");
+      modal.addEventListener(
+      "animationend",
+      () => {
+      modal.style.display = "none";
+      modal.classList.remove("hide");
+    },
+    { once: true }
+  );
+    });
+});
+
+// Pre-Miruh message
+document.getElementById("confirmMessage").addEventListener("click", () => {
+
+      confirmMiruh.classList.remove("show");
+      confirmMiruh.classList.add("hide");
+      confirmMiruh.addEventListener(
+      "animationend",
+      () => {
+      confirmMiruh.style.display = "none";
+      confirmMiruh.classList.remove("hide");
+
+      calen.style.display = "none";
+
+      miruhMessage.style.display = "flex";
+
+      miruhMessage.classList.add("show");
+
+    },
+    { once: true }
+  );
+});
+
+// MIRUH INPUT
+document.getElementById("sendReply").addEventListener("click", () => {
+  const replyMessage = document.getElementById("replyMessage").value;
+
+  const templateParamsRimuh = {
+    message: replyMessage,
+    time: new Date().toLocaleTimeString()
+  };
+
+  emailjs
+    .send("service_0aq2la9", "template_vek2mfb", templateParamsRimuh)
+    .then(() => {
+      miruhMessage.classList.remove("show");
+      miruhMessage.classList.add("hide");
+      miruhMessage.addEventListener(
+      "animationend",
+      () => {
+      miruhMessage.style.display = "none";
+      miruhMessage.classList.remove("hide");
+    },
+    { once: true }
+  );
+    })
+    .catch(() => {
+      alert("Failed to send baby! 😢");
+      miruhMessage.classList.remove("show");
+      miruhMessage.classList.add("hide");
+      miruhMessage.addEventListener(
+      "animationend",
+      () => {
+      miruhMessage.style.display = "none";
+      miruhMessage.classList.remove("hide");
+    },
+    { once: true }
+  );
+    });
+});
+
+document.getElementById("cancelModal").addEventListener("click", () => {
+  modal.classList.remove("show");
+  modal.classList.add("hide");
+   modal.addEventListener(
+    "animationend",
+    () => {
+      modal.style.display = "none";
+      modal.classList.remove("hide");
+    },
+    { once: true }
+  );
+});
+
+document.getElementById("cancelMessage").addEventListener("click", () => {
+  confirmMiruh.classList.remove("show");
+  confirmMiruh.classList.add("hide");
+   confirmMiruh.addEventListener(
+    "animationend",
+    () => {
+      confirmMiruh.style.display = "none";
+      confirmMiruh.classList.remove("hide");
+    },
+    { once: true }
+  );
 });
 
 new QRCode(document.getElementById("qrcode2"), {
