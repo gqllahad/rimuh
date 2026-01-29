@@ -460,7 +460,7 @@ font-style: italic;
 
 .jumpy-image img {
   width: 150px;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
   height: auto;
   animation: jump 1s infinite;
 }
@@ -490,7 +490,7 @@ font-style: italic;
 }
 
 /* modal */
-.modal {
+.modal{
   position: fixed;
   inset: 0;
   width: 100%;
@@ -547,6 +547,8 @@ font-style: italic;
 #cancelModal {
   background: #555;
   color: white;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
 }
 
 #confirmMessage {
@@ -558,9 +560,26 @@ font-style: italic;
 #cancelMessage {
   background: #555;
   color: white;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
 }
 
+#validation-ok {
+  background: #d450b8;
+  color: white;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+}
 
+#cancelMessage:hover, #cancelModal:hover{
+  background: #383838 ;
+  transform: translateY(0);
+}
+
+#validation-ok:hover{
+  background: #d32baf ;
+  transform: translateY(0);
+}
 
 /* message gover */
 .hover-text, .hover-text-calendar {
@@ -699,9 +718,9 @@ font-style: italic;
 }
 
 
-/* message ni miruh */
+/* message ni miruh & last-message */
 
-.message-container {
+.message-container{
   display: none;
   flex-direction: column;
   gap: 10px;
@@ -710,11 +729,21 @@ font-style: italic;
   animation: popIn 0.4s ease;
 }
 
-.message-container.show {
+.last-message-container {
+  display: none;
+  margin: 5% 10%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  animation: popIn 0.4s ease;
+}
+
+.message-container.show, .last-message-container.show {
   display: flex;
 }
 
-.message-container.hide{
+.message-container.hide, .last-message-container.hide{
   animation: popOut 0.5s ease forwards;
 }
 
@@ -751,6 +780,19 @@ font-style: italic;
   font-weight: bold;
   background: #ff3f6c;
   color: white;
+}
+
+.last-image-container{
+    width: 100%;
+    height: 250px;
+    background-image: url('534bd723-cb64-4815-9aa5-34eb620399a5.gif');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    align-items: center;
+    mix-blend-mode: multiply;
+    margin : 5% 3%;
+    transition: background-image 0.5s ease-in-out;
 }
 
 /* 

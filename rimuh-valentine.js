@@ -21,9 +21,17 @@ let selectedDate = null;
 const modal = document.getElementById("confirmModal");
 const modalDateText = document.getElementById("modal-date-text");
 
+// validation
+const vsmModal = document.getElementById("vsm-modal");
+const vsmModalOk = document.getElementById("validation-ok");
+
+
 // miruh mess
 const replyMessage = document.getElementById("replyMessage").value;
 const miruhMessage = document.getElementById("mess-rimuh");
+
+const lastMessage = document.getElementById("last-message");
+
 
 const confirmMiruh = document.getElementById("confirmMiruh");
 
@@ -289,9 +297,13 @@ document.getElementById("confirmSend").addEventListener("click", () => {
       modal.style.display = "none";
       modal.classList.remove("hide");
 
-      confirmMiruh.style.display = "flex";
+      vsmModal.style.display = "flex";
 
-      confirmMiruh.classList.add("show");
+      vsmModal.classList.add("show");
+
+      // confirmMiruh.style.display = "flex";
+
+      // confirmMiruh.classList.add("show");
 
     },
     { once: true }
@@ -310,6 +322,26 @@ document.getElementById("confirmSend").addEventListener("click", () => {
     { once: true }
   );
     });
+});
+
+
+vsmModalOk.addEventListener("click", () => {
+
+  vsmModal.classList.remove("show");
+      vsmModal.classList.add("hide");
+      vsmModal.addEventListener(
+      "animationend",
+      () => {
+      vsmModal.style.display = "none";
+      vsmModal.classList.remove("hide");
+
+      confirmMiruh.style.display = "flex";
+
+      confirmMiruh.classList.add("show");
+
+    },
+    { once: true }
+  );
 });
 
 // Pre-Miruh message
@@ -393,6 +425,12 @@ document.getElementById("cancelMessage").addEventListener("click", () => {
     () => {
       confirmMiruh.style.display = "none";
       confirmMiruh.classList.remove("hide");
+
+      calen.style.display = "none";
+
+      lastMessage.style.display = "flex";
+      lastMessage.classList.add("show");
+
     },
     { once: true }
   );
