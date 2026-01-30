@@ -381,6 +381,10 @@ document.getElementById("sendReply").addEventListener("click", () => {
       () => {
       miruhMessage.style.display = "none";
       miruhMessage.classList.remove("hide");
+
+      lastMessage.style.display = "flex";
+      lastMessage.classList.add("show");
+
     },
     { once: true }
   );
