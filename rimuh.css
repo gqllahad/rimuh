@@ -588,13 +588,22 @@ font-style: italic;
   cursor: pointer;
 }
 
+.hover-text{
+  margin : 0 3%;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
 .hover-text-calendar{
+  font-style: italic;
+  color: #fc3560;
   margin: 5% 5%;
 }
 
 .hover-text::after {
   content: attr(data-hover);
   position: absolute;
+  text-align: center;
   left: 0;
   top: 0;
   opacity: 0;
@@ -611,7 +620,7 @@ font-style: italic;
   opacity: 0;
   transform: translateY(100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  color: #f8f8f8;
+  color: #fc3560;
 }
 
 .hover-text:hover::after, .hover-text-calendar:hover::after {
@@ -622,9 +631,6 @@ font-style: italic;
 .hover-text:hover, .hover-text-calendar:hover {
   color: transparent;
 }
-
-
-
 
 /* calendar */
 .calendar-container{
@@ -739,6 +745,11 @@ font-style: italic;
   animation: popIn 0.4s ease;
 }
 
+.last-message-container h2{
+  color: #fc3560;
+  font-style: italic;
+}
+
 .message-container.show, .last-message-container.show {
   display: flex;
 }
@@ -793,6 +804,17 @@ font-style: italic;
     mix-blend-mode: multiply;
     margin : 5% 3%;
     transition: background-image 0.5s ease-in-out;
+}
+
+#check-email {
+  width: 100px;
+  height: auto;
+  transform : translateY(20px);
+  transition: transform 0.5s ease;
+}
+
+#check-email:hover{
+  transform: translateY(0);
 }
 
 /* 

@@ -168,7 +168,7 @@ function renderCalendar() {
     dayDiv.style.pointerEvents = "none";
     dayDiv.style.opacity = "0.3";
   }
-  else if(dayOfWeek === 2){
+  else if(dayOfWeek === 1){
         dayDiv.classList.add("disabled");
     dayDiv.style.pointerEvents = "none";
     dayDiv.style.opacity = "0.3";
@@ -300,10 +300,6 @@ document.getElementById("confirmSend").addEventListener("click", () => {
       vsmModal.style.display = "flex";
 
       vsmModal.classList.add("show");
-
-      // confirmMiruh.style.display = "flex";
-
-      // confirmMiruh.classList.add("show");
 
     },
     { once: true }
